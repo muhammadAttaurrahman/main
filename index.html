@@ -1,191 +1,371 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-  <head> 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" /> 
-    <meta name="viewport" 
-          content="width=device-width,  
-                   initial-scale=1" /> 
-  
-    <!-- Bootstrap CSS -->
-    <link
-      href= 
-"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity= 
-"sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    /> 
-    
-    <link rel="preconnect" 
-          href="https://fonts.gstatic.com" /> 
-    <link
-      href= 
-"https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
-      rel="stylesheet"
-    /> 
-    <title>Muhammad Atta ur Rahman</title> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <title>Muhammad Atta ur Rahman - AI Researcher</title>
 
 <style>
-  *{ 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Roboto Condensed', sans-serif; 
-} 
-  
-
-/* about */
-  
-#about{ 
-    padding-top: 50px; 
-    padding-bottom: 50px; 
-    padding-left: 70px;
-} 
-  
-#about h1{ 
-    padding-bottom: 50px; 
-} 
-  
-#about-col ul{ 
-    padding-top: 10px; 
-    padding-left: 50px; 
-} 
-  
-#about-col ul li{ 
-    padding-top: 5px; 
-      
-} 
-  
-
-/* footer */
-  
-.mb-3{ 
-  padding-top: 10px; 
-} 
-a{
-        color: blue;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-  
-  
-/* media */
-@media only screen and (max-width: 987px){ 
-    .navbar-brand{ 
-        padding-left: 0px; 
-    } 
-} 
-  
-@media only screen and (max-width: 768px){ 
-    #banner-row img{ 
-        padding-top: 20px; 
-    } 
-  
-   .social-col{ 
-       width: 33%; 
-   } 
-  
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.header-section {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.header-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-section .subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    padding: 50px;
+}
+
+.profile-sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card h3 {
+    font-size: 1.1rem;
+    color: #2a5298;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-btn, .github-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.contact-btn:hover, .github-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    color: white;
+}
+
+.main-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-content {
+    padding-left: 10px;
+}
+
+.timeline-content p {
+    margin-bottom: 0;
+    line-height: 1.7;
+    color: #333;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.interest-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.interest-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.project-card, .publication-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover, .publication-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.publication-card a {
+    color: #2a5298;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.publication-card a:hover {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-sidebar {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-section h1 {
+        font-size: 2rem;
+    }
+    
+    .header-section .subtitle {
+        font-size: 1rem;
+    }
+    
+    .content-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .main-content {
+        padding: 25px;
+    }
+    
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-section">
+            <h1>Muhammad Atta Ur Rahman</h1>
+            <p class="subtitle">AI Researcher | Autonomous Driving | Deep Learning</p>
+        </div>
 
-  </head> 
-  <body> 
-    
-     
-  
-    <!-- about Us -->
-    <section id="about"> 
-      <h1 class="text-center">Muhammad Atta Ur Rahman</h1> 
-      <div class="container-fluid" id="about-container"> 
-        <div class="row" id="banner-row"> 
-          <div class="col-md-6" id="about-col"> 
-        
-            <h3 style="text-align: left;"> Career</h3>
-            <ul>
-          <li> Researcher, Autonomous Driving Intelligence Research (ADIR) Team, ETRI, (Sep-2023 ~ Aug-2025)</li>
-           <li> Lecturer (contract), Islamia College University Peshawar (ICP), Pakistan (Sep-2022 ~ Aug-2023)</li>
-              <li> Research Assistant, Digital Image Processing Lab (DIP Lab), ICP (Sep-2021 ~ Aug-2023)</li>
-            </ul>
-            <h3 style="text-align: left;"> Education</h3>
-            <ul>
-           <li>MS Artificial Intelligence, ETRI, University of Science & Technology, South Korea (Sep-2023 ~ Aug-2025)</li>
-           <li>BS Software Engineering, Islamia College University Peshawar, Pakistan (Aug-2017 ~ Sep-2021)</li>
-            </ul>
-            
-            <h3 style="text-align: left;"> Research Interests</h3>
-            <ul>
-              <li>Autonomous Driving</li>
-              <li>Trajectory Prediction</li>
-               <li>Motion Planning</li>
-                    <li>Deep Reinforcement Learning</li>
-                       
-            </ul>
-            
-            
-            
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Career</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <p><strong>Researcher</strong><br>
+                            Autonomous Driving Intelligence Research (ADIR) Team, ETRI<br>
+                            <em>Sep 2023 ~ Aug 2025</em></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <p><strong>Lecturer (Contract)</strong><br>
+                            Islamia College University Peshawar (ICP), Pakistan<br>
+                            <em>Sep 2022 ~ Aug 2023</em></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <p><strong>Research Assistant</strong><br>
+                            Digital Image Processing Lab (DIP Lab), ICP<br>
+                            <em>Sep 2021 ~ Aug 2023</em></p>
+                        </div>
+                    </div>
+                </div>
 
-           <h3 style="text-align: left;"> Projects</h3>
-           <ul> <li>Development of Perception/Planning AI SW for Seamless Autonomous Driving in Adverse Weather and Unstructured Environments.</li>
-           <li>Development of Reinforcement Learning-based automated driving AI software technology for optimal driving behavior decisions in hazardous situations on congested roads.</li>
-             <li>ETRI’s Trajectory Prediction Challenge: ETRI Dataset Adaptation for Argoverse 2 Baselines.</li>
-           </ul>
+                <div class="section">
+                    <h2>Education</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <p><strong>MS Artificial Intelligence</strong><br>
+                            ETRI, University of Science & Technology, South Korea<br>
+                            <em>Sep 2023 ~ Aug 2025</em></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <p><strong>BS Software Engineering</strong><br>
+                            Islamia College University Peshawar, Pakistan<br>
+                            <em>Aug 2017 ~ Sep 2021</em></p>
+                        </div>
+                    </div>
+                </div>
 
-            <h3 style="text-align: left;"> Publications</h3>
-           <li>
-    M. A. Rahman, D. Choi, S.-I. Lee, and K. Min, 
-    <a href="https://ieeexplore.ieee.org/document/11096230" target="_blank">
-      “Beyond-Labels: Advancing Open-Vocabulary Segmentation With Vision-Language Models”
-    </a>, 
-    in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.
-  </li>
-  <li>
-    M. A. Rahman, D. Choi, and K. Min, 
-    <a href="https://ieeexplore.ieee.org/document/11096173" target="_blank">
-      “LANet: A Lane Boundaries-Aware Approach for Robust Trajectory Prediction”
-    </a>, 
-    in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.
-  </li>
-    <li>
-    M. A. Rahman, H. Jeongbin, D. Choi, and K. Min, 
-    <a href="" target="_blank">
-      “IGP-Traj: Interaction Graph Pruning for Efficient and Robust Trajectory Prediction," 
-    </a>, 
-    in Transactions of the Korean Society of Automotive Engineers, 2025. (Accepted)
-  </li>         
-            
-            <li>
-    H. Jeongbin, D. Choi, M. A. Rahman, K. An, and K. Min,<a href="https://ictc.org/program_proceeding" target="_blank"> "Regularizing Neural Networks for BEV Semantic Segmentation via Inter-class Hierarchy and Spatially-aware Weight Adjustment" </a>, in Proceedings of the 16th International Conference on ICT Convergence (ICTC), Jeju, South Korea, 2025.
-  </li>
-         
-          
-          </ul>
-          
-           
-           
-            <h3 style="text-align: left;"> Contact</h3>
-           <ul> <li> E-mail: m.attaurrahman01@gmail.com/rahman@etri.re.kr</li></ul>
-            
-        
-          </div> 
-          <div class="col-md-6" id="banner-col2" style="text-align: center; "> 
-            <img
-              class="img-responsive rounded mx-auto d-block " style="margin-bottom: 1.8%; height: 600px;"
-              src="muhammad_logo.jpg"
-              alt=""
-            /> 
-            Researcher@ETRI & MS AI@UST
-                <a href="https://github.com/muhammadAttaurrahman">View my GitHub Profile</a>
-          </div> 
-        </div> 
-      </div> 
-    </section> 
-    <hr /> 
-     
-  </body> 
-</html> 
+                <div class="section">
+                    <h2>Research Interests</h2>
+                    <div class="interests-grid">
+                        <div class="interest-badge">Autonomous Driving</div>
+                        <div class="interest-badge">Trajectory Prediction</div>
+                        <div class="interest-badge">Motion Planning</div>
+                        <div class="interest-badge">Deep Reinforcement Learning</div>
+                    </div>
+                </div>
 
+                <div class="section">
+                    <h2>Projects</h2>
+                    <div class="project-card">
+                        <p>Development of Perception/Planning AI SW for Seamless Autonomous Driving in Adverse Weather and Unstructured Environments.</p>
+                    </div>
+                    <div class="project-card">
+                        <p>Development of Reinforcement Learning-based automated driving AI software technology for optimal driving behavior decisions in hazardous situations on congested roads.</p>
+                    </div>
+                    <div class="project-card">
+                        <p>ETRI's Trajectory Prediction Challenge: ETRI Dataset Adaptation for Argoverse 2 Baselines.</p>
+                    </div>
+                </div>
 
+                <div class="section">
+                    <h2>Publications</h2>
+                    <div class="publication-card">
+                        <p>M. A. Rahman, D. Choi, S.-I. Lee, and K. Min, 
+                        <a href="https://ieeexplore.ieee.org/document/11096230" target="_blank">
+                        "Beyond-Labels: Advancing Open-Vocabulary Segmentation With Vision-Language Models"</a>, 
+                        in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.</p>
+                    </div>
+                    <div class="publication-card">
+                        <p>M. A. Rahman, D. Choi, and K. Min, 
+                        <a href="https://ieeexplore.ieee.org/document/11096173" target="_blank">
+                        "LANet: A Lane Boundaries-Aware Approach for Robust Trajectory Prediction"</a>, 
+                        in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.</p>
+                    </div>
+                    <div class="publication-card">
+                        <p>M. A. Rahman, H. Jeongbin, D. Choi, and K. Min, 
+                        "IGP-Traj: Interaction Graph Pruning for Efficient and Robust Trajectory Prediction," 
+                        in Transactions of the Korean Society of Automotive Engineers, 2025. (Accepted)</p>
+                    </div>
+                    <div class="publication-card">
+                        <p>H. Jeongbin, D. Choi, M. A. Rahman, K. An, and K. Min,
+                        <a href="https://ictc.org/program_proceeding" target="_blank">
+                        "Regularizing Neural Networks for BEV Semantic Segmentation via Inter-class Hierarchy and Spatially-aware Weight Adjustment"</a>, 
+                        in Proceedings of the 16th International Conference on ICT Convergence (ICTC), Jeju, South Korea, 2025.</p>
+                    </div>
+                </div>
+            </div>
 
-
-
-
-
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <img src="muhammad_logo.jpg" alt="Muhammad Atta ur Rahman" class="profile-image" />
+                    <h3>Researcher @ ETRI<br>MS AI @ UST</h3>
+                    <a href="mailto:m.attaurrahman01@gmail.com" class="contact-btn">📧 Email Me</a>
+                    <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="github-btn">💻 GitHub Profile</a>
+                    <div style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                        <p><strong>Contact:</strong></p>
+                        <p style="font-size: 0.85rem;">m.attaurrahman01@gmail.com<br>rahman@etri.re.kr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
