@@ -518,6 +518,64 @@ body::before {
     .proj-badge { grid-column: 2; }
 }
 
+/* ── AWARDS ── */
+.awards-list { display: flex; flex-direction: column; gap: 12px; }
+
+.award-item {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    align-items: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.award-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 12px rgba(184, 146, 42, 0.08);
+}
+
+.award-year {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+.award-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.award-title {
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--ink);
+    font-family: var(--display);
+}
+
+.award-org {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+}
+
+.award-badge {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--gold);
+    background: var(--gold-light);
+    border: 1px solid #e2cc8a;
+    border-radius: 2px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
 /* ── FOOTER RULE ── */
 .page-footer {
     border-top: 1px solid var(--rule);
@@ -544,11 +602,11 @@ body::before {
                 Specializing in Artificial Intelligence and Autonomous Driving, with experience in developing AI-driven solutions for safe, efficient, and intelligent navigation in dynamic environments. Passionate about advancing research in Intelligent Autonomous Systems.
             </p>
             <div class="contact-row">
-                <a href="mailto:m.attaurrahman01@gmail.com" class="contact-chip">
-                    <span class="icon">✉</span> m.attaurrahman01@gmail.com
+                <a href="/cdn-cgi/l/email-protection#412c6f2035352034333320292c202f717001262c20282d6f222e2c" class="contact-chip">
+                    <span class="icon">✉</span> <span class="__cf_email__" data-cfemail="ef82c18e9b9b8e9a9d9d8e87828e81dfdeaf88828e8683c18c8082">[email&#160;protected]</span>
                 </a>
-                <a href="mailto:marahman@swm.ai" class="contact-chip">
-                    <span class="icon">✉</span> marahman@swm.ai
+                <a href="/cdn-cgi/l/email-protection#315c504350595c505f7142465c1f5058" class="contact-chip">
+                    <span class="icon">✉</span> <span class="__cf_email__" data-cfemail="dcb1bdaebdb4b1bdb29cafabb1f2bdb5">[email&#160;protected]</span>
                 </a>
                 <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="contact-chip">
                     <span class="icon">⌥</span> GitHub
@@ -564,6 +622,7 @@ body::before {
         <a href="#interests" class="nav-link">Research Interests</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#publications" class="nav-link">Publications</a>
+        <a href="#awards" class="nav-link">Awards</a>
     </nav>
 
     <!-- BODY -->
@@ -580,7 +639,7 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">Associate Research Engineer</div>
-                            <div class="tl-org">Driving Planning AI Development Team · SW Mobility (SWM), South Korea</div>
+                            <div class="tl-org">Driving Planning AI Development Team, SW Mobility (SWM), South Korea</div>
                             <div class="tl-period">Dec 2025 – Present</div>
                         </div>
                     </div>
@@ -589,7 +648,7 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">Researcher</div>
-                            <div class="tl-org">Autonomous Driving Intelligence Research (ADIR) Team · Electronics and Telecommunications Research Institute (ETRI), South Korea</div>
+                            <div class="tl-org">Autonomous Driving Intelligence Research (ADIR) Team, Electronics and Telecommunications Research Institute (ETRI), South Korea</div>
                             <div class="tl-period">Sep 2023 – Sep 2025</div>
                         </div>
                     </div>
@@ -598,7 +657,7 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">Visiting Faculty</div>
-                            <div class="tl-org">Department of Computer Science · Islamia College University Peshawar (ICP), Pakistan</div>
+                            <div class="tl-org">Department of Computer Science, Islamia College University Peshawar (ICP), Pakistan</div>
                             <div class="tl-period">Sep 2022 – Aug 2023</div>
                         </div>
                     </div>
@@ -607,7 +666,7 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">Research Assistant</div>
-                            <div class="tl-org">Digital Image Processing Lab (DIP Lab) · ICP, Pakistan</div>
+                            <div class="tl-org">Digital Image Processing Lab (DIP Lab), ICP, Pakistan</div>
                             <div class="tl-period">Sep 2021 – Aug 2023</div>
                         </div>
                     </div>
@@ -625,8 +684,8 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">MS Artificial Intelligence</div>
-                            <div class="tl-org">UST-ETRI School · University of Science &amp; Technology (UST), South Korea</div>
-                            <div class="tl-org">Thesis · Efficient Trajectory Prediction via Interaction Pruning in Autonomous Driving Scenes.</div>
+                            <div class="tl-org">UST-ETRI School, University of Science &amp; Technology (UST), South Korea</div>
+                            <div class="tl-org">Thesis: Efficient Trajectory Prediction via Interaction Pruning in Autonomous Driving Scenes.</div>
                             <div class="tl-period">Sep 2023 – Aug 2025</div>
                         </div>
                     </div>
@@ -636,7 +695,7 @@ body::before {
                         <div class="tl-body">
                             <div class="tl-role">BS Software Engineering</div>
                             <div class="tl-org">Islamia College University Peshawar, Pakistan</div>
-                            <div class="tl-org">Thesis. Multimedia Data Integrity in IoT Visual Sensor Network Using Blockchain</div>
+                            <div class="tl-org">Thesis, Multimedia Data Integrity in IoT Visual Sensor Network Using Blockchain</div>
                             <div class="tl-period">Aug 2017 – Sep 2021</div>
                         </div>
                     </div>
@@ -736,6 +795,69 @@ body::before {
                 </div>
             </section>
 
+            <!-- AWARDS -->
+            <section class="section" id="awards">
+                <div class="section-label">Honors & Recognition</div>
+                <h2 class="section-title">Awards & Achievements</h2>
+                <div class="awards-list">
+
+                    <div class="award-item">
+                        <span class="award-year">2025</span>
+                        <div class="award-body">
+                            <span class="award-title">UST Outstanding Student Award</span>
+                            <span class="award-org">University of Science &amp; Technology (UST), South Korea</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                    <div class="award-item">
+                        <span class="award-year">2025</span>
+                        <div class="award-body">
+                            <span class="award-title">UST International Presentation Support Program</span>
+                            <span class="award-org">University of Science &amp; Technology (UST), South Korea</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                    <div class="award-item">
+                        <span class="award-year">2023</span>
+                        <div class="award-body">
+                            <span class="award-title">UST Master Scholarship</span>
+                            <span class="award-org">University of Science &amp; Technology (UST), South Korea</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                    <div class="award-item">
+                        <span class="award-year">2021</span>
+                        <div class="award-body">
+                            <span class="award-title">Silver Medalist in Bachelors</span>
+                            <span class="award-org">Ranked 2nd among 100 students · Islamia College University Peshawar</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                    <div class="award-item">
+                        <span class="award-year">2021</span>
+                        <div class="award-body">
+                            <span class="award-title">Section Topper in Bachelors</span>
+                            <span class="award-org">Ranked 1st in section · Islamia College University Peshawar</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                    <div class="award-item">
+                        <span class="award-year">2020</span>
+                        <div class="award-body">
+                            <span class="award-title">Ehsaas Undergraduate Scholarship</span>
+                            <span class="award-org">Government of Pakistan</span>
+                        </div>
+                        <span class="award-badge">Merit Award</span>
+                    </div>
+
+                </div>
+            </section>
+
         </main>
 
         <!-- SIDEBAR -->
@@ -748,8 +870,8 @@ body::before {
 
                 <div class="sidebar-label">Contact</div>
                 <div class="sidebar-email">
-                    m.attaurrahman01@gmail.com<br>
-                    marahman@swm.ai
+                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3befdb2a7a7b2a6a1a1b2bbbeb2bde3e293b4beb2babffdb0bcbe">[email&#160;protected]</a><br>
+                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84e9e5f6e5ece9e5eac4f7f3e9aae5ed">[email&#160;protected]</a>
                 </div>
 
                 <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="sidebar-link">
@@ -758,20 +880,4 @@ body::before {
 
                 <div class="sidebar-label">Overview</div>
                 <div class="stat-row"><span class="stat-key">Publications</span><span class="stat-val">4</span></div>
-                <div class="stat-row"><span class="stat-key">Projects</span><span class="stat-val">5</span></div>
-                <div class="stat-row"><span class="stat-key">Experience</span><span class="stat-val">~4 yrs</span></div>
-                <div class="stat-row"><span class="stat-key">Degree</span><span class="stat-val">MS AI</span></div>
-
-            </div>
-        </aside>
-
-    </div>
-
-    <footer class="page-footer">
-        Muhammad Atta ur Rahman · AI Researcher · South Korea
-    </footer>
-
-</div>
-
-</body>
-</html>
+                <div class="stat-row"><span class="stat-key">Awards</span><span class="stat-val">6</span></div>
