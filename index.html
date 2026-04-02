@@ -3,386 +3,773 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <title>Muhammad Atta ur Rahman - AI Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <title>Muhammad Atta ur Rahman — AI Researcher</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --ink: #0f1117;
+    --ink-mid: #2c3044;
+    --ink-light: #5a617a;
+    --ink-faint: #9097ae;
+    --paper: #fafaf8;
+    --paper-warm: #f4f2ec;
+    --rule: #ddd9ce;
+    --accent: #1a3a6b;
+    --accent-mid: #2b5499;
+    --accent-glow: #4a80d4;
+    --accent-soft: #e8edf8;
+    --gold: #b8922a;
+    --gold-light: #f0e4c0;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --display: 'Playfair Display', Georgia, serif;
 }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: var(--serif);
+    background: var(--paper-warm);
+    color: var(--ink);
     min-height: 100vh;
-    padding: 40px 20px;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-.main-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+/* ── NOISE TEXTURE ── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
 }
 
-.header-section {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 60px 40px;
-    text-align: center;
-}
-
-.header-section h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.header-section .subtitle {
-    font-size: 1.3rem;
-    font-weight: 300;
-    opacity: 0.95;
-}
-
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 40px;
-    padding: 50px;
-}
-
-.profile-sidebar {
-    position: sticky;
-    top: 20px;
-    height: fit-content;
-}
-
-.profile-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.profile-image {
-    width: 100%;
-    max-width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.profile-card h3 {
-    font-size: 1.1rem;
-    color: #2a5298;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.contact-btn, .github-btn {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 24px;
-    margin: 8px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-.contact-btn:hover, .github-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-    color: white;
-}
-
-.main-content {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.section {
-    margin-bottom: 50px;
-}
-
-.section:last-child {
-    margin-bottom: 0;
-}
-
-.section h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #1e3c72;
-    margin-bottom: 25px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid #667eea;
-    display: inline-block;
-}
-
-.timeline-item {
+/* ── LAYOUT ── */
+.page {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 25px;
-    border-left: 2px solid #e0e0e0;
+    z-index: 1;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
 }
 
-.timeline-item:before {
+/* ── MASTHEAD ── */
+.masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 48px 0 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.masthead-photo {
+    flex-shrink: 0;
+    width: 148px;
+    height: 148px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    box-shadow: 4px 4px 0 var(--rule);
+    animation: fadeUp 0.7s ease both;
+}
+
+.masthead-photo-placeholder {
+    flex-shrink: 0;
+    width: 148px;
+    height: 148px;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    box-shadow: 4px 4px 0 var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    animation: fadeUp 0.7s ease both;
+}
+
+.masthead-text {
+    flex: 1;
+    animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.name-line {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.title-line {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--accent-mid);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.bio-text {
+    margin-top: 14px;
+    font-size: 0.97rem;
+    color: var(--ink-mid);
+    max-width: 620px;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+.contact-row {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-mid);
+    text-decoration: none;
+    background: var(--paper);
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.contact-chip:hover {
+    border-color: var(--accent-mid);
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.contact-chip .icon { font-size: 0.9rem; }
+
+/* ── NAV STRIP ── */
+.nav-strip {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.nav-strip::-webkit-scrollbar { display: none; }
+
+.nav-link {
+    padding: 14px 22px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── BODY GRID ── */
+.body-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 64px;
+    padding-top: 56px;
+}
+
+/* ── SECTION ── */
+.section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s ease both;
+}
+
+.section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-light);
+}
+
+.section-title {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 28px;
+    margin-top: -4px;
+}
+
+/* ── TIMELINE ── */
+.timeline { display: flex; flex-direction: column; gap: 24px; }
+
+.tl-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    position: relative;
+}
+
+.tl-item::before {
     content: '';
     position: absolute;
-    left: -6px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
+    left: 62px;
+    top: 8px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--rule);
+}
+
+.tl-item:last-child::before { display: none; }
+
+.tl-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 4px;
+}
+
+.tl-dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--paper);
+    border: 2px solid var(--accent-mid);
+    flex-shrink: 0;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
+.tl-body {}
 
-.timeline-content {
-    padding-left: 10px;
-}
-
-.timeline-content p {
-    margin-bottom: 0;
-    line-height: 1.7;
-    color: #333;
-}
-
-.interests-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.interests-list li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    line-height: 1.7;
-    color: #333;
+.tl-role {
+    font-family: var(--display);
     font-size: 1.05rem;
-}
-
-.interests-list li:before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: #667eea;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.project-card, .publication-card {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    border-left: 4px solid #667eea;
-    transition: all 0.3s ease;
-}
-
-.project-card:hover, .publication-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.publication-card a {
-    color: #2a5298;
-    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    color: var(--ink);
+    line-height: 1.3;
 }
 
-.publication-card a:hover {
-    color: #667eea;
-    text-decoration: underline;
+.tl-org {
+    font-size: 0.9rem;
+    color: var(--accent-mid);
+    margin-top: 3px;
 }
 
-@media (max-width: 1024px) {
-    .content-wrapper {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-sidebar {
-        position: relative;
-        top: 0;
-    }
+.tl-period {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
 }
 
-@media (max-width: 768px) {
-    .header-section h1 {
-        font-size: 2rem;
-    }
-    
-    .header-section .subtitle {
-        font-size: 1rem;
-    }
-    
-    .content-wrapper {
-        padding: 30px 20px;
-    }
-    
-    .main-content {
-        padding: 25px;
-    }
+/* ── INTERESTS ── */
+.interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.interest-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.interest-pill:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent-glow);
+}
+
+.interest-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-glow);
+    flex-shrink: 0;
+}
+
+/* ── PROJECTS ── */
+.project-list { display: flex; flex-direction: column; gap: 16px; }
+
+.project-item {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    align-items: start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-item:hover {
+    border-color: var(--accent-glow);
+    box-shadow: 0 2px 12px rgba(74, 128, 212, 0.08);
+}
+
+.proj-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    padding-top: 2px;
+}
+
+.proj-text {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+}
+
+.proj-badge {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent-mid);
+    background: var(--accent-soft);
+    border: 1px solid #c4d3ee;
+    border-radius: 2px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
+/* ── PUBLICATIONS ── */
+.pub-list { display: flex; flex-direction: column; gap: 20px; }
+
+.pub-item {
+    padding: 20px 20px 20px 24px;
+    border-left: 3px solid var(--accent-soft);
+    background: var(--paper);
+    border-radius: 0 3px 3px 0;
+    border-top: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: border-left-color 0.2s;
+}
+
+.pub-item:hover {
+    border-left-color: var(--accent-mid);
+}
+
+.pub-authors {
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.pub-title {
+    font-family: var(--display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    line-height: 1.45;
+    display: block;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+}
+
+.pub-title:hover { color: var(--accent-glow); }
+
+.pub-venue {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+    animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.sidebar-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 28px 24px;
+    position: sticky;
+    top: 32px;
+}
+
+.sidebar-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    margin-top: 28px;
+}
+
+.sidebar-label:first-child { margin-top: 0; }
+
+.sidebar-name {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+.sidebar-pos {
+    font-size: 0.82rem;
+    color: var(--accent-mid);
+    line-height: 1.5;
+}
+
+.sidebar-email {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-mid);
+    word-break: break-all;
+    line-height: 1.6;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+}
+
+.sidebar-link:hover { background: var(--accent-mid); color: #fff; }
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.85rem;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-key { color: var(--ink-light); }
+.stat-val { font-weight: 600; color: var(--ink); font-family: var(--mono); font-size: 0.8rem; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.section:nth-child(1) { animation-delay: 0.25s; }
+.section:nth-child(2) { animation-delay: 0.35s; }
+.section:nth-child(3) { animation-delay: 0.45s; }
+.section:nth-child(4) { animation-delay: 0.55s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .body-grid { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+    .sidebar-card { position: static; display: flex; flex-wrap: wrap; gap: 24px; }
+    .interests-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .masthead { flex-direction: column; gap: 24px; }
+    .project-item { grid-template-columns: 24px 1fr; }
+    .proj-badge { grid-column: 2; }
+}
+
+/* ── FOOTER RULE ── */
+.page-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 32px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
 }
 </style>
-
 </head>
 <body>
-    <div class="main-container">
-        <div class="header-section">
-            <h1>Muhammad Atta Ur Rahman</h1>
-            <p class="subtitle">I am an Associate Research Engineer at SWM, specializing in Artificial Intelligence and Autonomous Driving, with experience in developing AI-driven solutions for safe, efficient, and intelligent navigation in dynamic environments. Passionate about advancing research in the field of Intelligent Autonomous Systems. </p>
-        </div>
 
-        <div class="content-wrapper">
-            <div class="main-content">
-                <div class="section">
-                    <h2>Career</h2>
+<div class="page">
 
-                     <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong>Associate Research Engineer</strong><br>
-                            Driving Planning AI Development Team,<br>
-                                SW Mobility (SWM), South Korea.
-                            <em> (Dec 2025 ~ Present)</em></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong>Researcher</strong><br>
-                            Autonomous Driving Intelligence Research (ADIR) Team,<br>
-                                Electronics and Telecommunications Research Institute (ETRI), South Korea.
-                            <em> (Sep 2023 ~ Sep 2025)</em></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong> Visiting Faculty</strong><br>
-                            Department of Computer Science,<br>
-                            Islamia College University Peshawar (ICP), Pakistan.
-                            <em> (Sep 2022 ~ Aug 2023)</em></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong>Research Assistant</strong><br>
-                            Digital Image Processing Lab (DIP Lab), ICP.
-                            <em> (Sep 2021 ~ Aug 2023)</em></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>Education</h2>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong>MS Artificial Intelligence</strong><br>
-                            UST-ETRI School, University of Science & Technology (UST), South Korea.
-                            <em> (Sep 2023 ~ Aug 2025)</em></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <p><strong>BS Software Engineering</strong><br>
-                            Islamia College University Peshawar, Pakistan.
-                            <em> (Aug 2017 ~ Sep 2021)</em></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>Research Interests</h2>
-                    <ul class="interests-list">
-                         <li>Intelligenet Autonomous Systems</li>
-                        <li>Autonomous Driving</li>
-                        <li>Motion Forecasting & Planning</li>
-                        <li>Robust Planning under uncertainty</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>Projects</h2>
-                    <div class="project-card">
-                        <p>RASE-Net: Development of a lightweight and efficient trajectory prediction framework for edge devices in Autonomous Vehicles.</p>
-                    </div>
-                    <div class="project-card">
-                        <p>ARMSTRONG A50 Motion Forecasting Dataset Pipeline: Development of a scalable data extraction and processing pipeline for the A50 Motion Forecasting Dataset.</p>
-                    </div>
-                    <div class="project-card">
-                        <p>Development of Perception/Planning AI SW for Seamless Autonomous Driving in Adverse Weather and Unstructured Environments.</p>
-                    </div>
-                    <div class="project-card">
-                        <p>Development of Reinforcement Learning-based automated driving AI software technology for optimal driving behavior decisions in hazardous situations on congested roads.</p>
-                    </div>
-                    <div class="project-card">
-                        <p> ETRI Motion Forecasting Dataset Preprocessing and Baseline Model Training for ETRI's Trajectory Prediction Challenge</p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>Publications</h2>
-                    <div class="publication-card">
-                        <p>M. A. Rahman, D. Choi, S.-I. Lee, and K. Min, 
-                        <a href="https://ieeexplore.ieee.org/document/11096230" target="_blank">
-                        "Beyond-Labels: Advancing Open-Vocabulary Segmentation With Vision-Language Models"</a>, 
-                        in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.</p>
-                    </div>
-                    <div class="publication-card">
-                        <p>M. A. Rahman, D. Choi, and K. Min, 
-                        <a href="https://ieeexplore.ieee.org/document/11096173" target="_blank">
-                        "LANet: A Lane Boundaries-Aware Approach for Robust Trajectory Prediction"</a>, 
-                        in Proceedings of 17th IEEE International Conference on Advanced Computational Intelligence (ICACI), Bath, UK, 2025.</p>
-                    </div>
-                    <div class="publication-card">
-                        <p>M. A. Rahman, H. Jeongbin, D. Choi, and K. Min, 
-                             <a href="https://dx.doi.org/10.7467/KSAE.2026.34.3.36" target="_blank">
-                        "Interaction Graph Pruning for Efficient and Robust Trajectory Prediction,"</a> 
-                        in Transactions of the Korean Society of Automotive Engineers, 2025. </p>
-                    </div>
-                    <div class="publication-card">
-                        <p>H. Jeongbin, D. Choi, M. A. Rahman, K. An, and K. Min,
-                        <a href="https://ieeexplore.ieee.org/document/11388697" target="_blank">
-                        "Regularizing Neural Networks for BEV Semantic Segmentation via Inter-class Hierarchy and Spatially-aware Weight Adjustment"</a>, 
-                        in Proceedings of the 16th International Conference on ICT Convergence (ICTC), Jeju, South Korea, 2025.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-sidebar">
-                <div class="profile-card">
-                    <img src="muhammad_logo.jpg" alt="Muhammad Atta ur Rahman" class="profile-image" />
-                    <h3>Researcher @ SWM<br>MS AI @ UST</h3>
-                    <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="github-btn">💻 GitHub Profile</a>
-                    <div style="margin-top: 20px; font-size: 0.9rem; color: #666;">
-                        <p><strong>Contact:</strong></p>
-                        <p style="font-size: 0.85rem;">m.attaurrahman01@gmail.com<br>marahman@swm.ai</p>
-                    </div>
-                </div>
+    <!-- MASTHEAD -->
+    <header class="masthead">
+        <div class="masthead-photo-placeholder">🎓</div>
+        <div class="masthead-text">
+            <div class="name-line">Muhammad Atta ur Rahman</div>
+            <div class="title-line">Associate Research Engineer · SW Mobility (SWM), South Korea</div>
+            <p class="bio-text">
+                Specializing in Artificial Intelligence and Autonomous Driving, with experience in developing AI-driven solutions for safe, efficient, and intelligent navigation in dynamic environments. Passionate about advancing research in Intelligent Autonomous Systems.
+            </p>
+            <div class="contact-row">
+                <a href="mailto:m.attaurrahman01@gmail.com" class="contact-chip">
+                    <span class="icon">✉</span> m.attaurrahman01@gmail.com
+                </a>
+                <a href="mailto:marahman@swm.ai" class="contact-chip">
+                    <span class="icon">✉</span> marahman@swm.ai
+                </a>
+                <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="contact-chip">
+                    <span class="icon">⌥</span> GitHub
+                </a>
             </div>
         </div>
+    </header>
+
+    <!-- NAV -->
+    <nav class="nav-strip">
+        <a href="#career" class="nav-link">Career</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#interests" class="nav-link">Research Interests</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#publications" class="nav-link">Publications</a>
+    </nav>
+
+    <!-- BODY -->
+    <div class="body-grid">
+        <main>
+
+            <!-- CAREER -->
+            <section class="section" id="career">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Career</h2>
+                <div class="timeline">
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">Associate Research Engineer</div>
+                            <div class="tl-org">Driving Planning AI Development Team · SW Mobility (SWM), South Korea</div>
+                            <div class="tl-period">Dec 2025 – Present</div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">Researcher</div>
+                            <div class="tl-org">Autonomous Driving Intelligence Research (ADIR) Team · Electronics and Telecommunications Research Institute (ETRI), South Korea</div>
+                            <div class="tl-period">Sep 2023 – Sep 2025</div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">Visiting Faculty</div>
+                            <div class="tl-org">Department of Computer Science · Islamia College University Peshawar (ICP), Pakistan</div>
+                            <div class="tl-period">Sep 2022 – Aug 2023</div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">Research Assistant</div>
+                            <div class="tl-org">Digital Image Processing Lab (DIP Lab) · ICP, Pakistan</div>
+                            <div class="tl-period">Sep 2021 – Aug 2023</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="section" id="education">
+                <div class="section-label">Academic Background</div>
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">MS Artificial Intelligence</div>
+                            <div class="tl-org">UST-ETRI School · University of Science &amp; Technology (UST), South Korea</div>
+                            <div class="tl-period">Sep 2023 – Aug 2025</div>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+                        <div class="tl-body">
+                            <div class="tl-role">BS Software Engineering</div>
+                            <div class="tl-org">Islamia College University Peshawar, Pakistan</div>
+                            <div class="tl-period">Aug 2017 – Sep 2021</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- INTERESTS -->
+            <section class="section" id="interests">
+                <div class="section-label">Focus Areas</div>
+                <h2 class="section-title">Research Interests</h2>
+                <div class="interests-grid">
+                    <div class="interest-pill"><span class="dot"></span>Intelligent Autonomous Systems</div>
+                    <div class="interest-pill"><span class="dot"></span>Autonomous Driving</div>
+                    <div class="interest-pill"><span class="dot"></span>Motion Forecasting &amp; Planning</div>
+                    <div class="interest-pill"><span class="dot"></span>Robust Planning under Uncertainty</div>
+                </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section class="section" id="projects">
+                <div class="section-label">Selected Work</div>
+                <h2 class="section-title">Projects</h2>
+                <div class="project-list">
+
+                    <div class="project-item">
+                        <span class="proj-num">01</span>
+                        <span class="proj-text">RASE-Net: Development of a lightweight and efficient trajectory prediction framework for edge devices in Autonomous Vehicles.</span>
+                        <span class="proj-badge">SWM · 2026</span>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="proj-num">02</span>
+                        <span class="proj-text">ARMSTRONG A50 Motion Forecasting Dataset Pipeline: Development of a scalable data extraction and processing pipeline for the A50 Motion Forecasting Dataset.</span>
+                        <span class="proj-badge">SWM · 2026</span>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="proj-num">03</span>
+                        <span class="proj-text">ETRI Motion Forecasting Dataset Preprocessing and Baseline Model Training for ETRI's Trajectory Prediction Challenge.</span>
+                        <span class="proj-badge">ETRI · 2025</span>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="proj-num">04</span>
+                        <span class="proj-text">Development of Reinforcement Learning-based automated driving AI software technology for optimal driving behavior decisions in hazardous situations on congested roads.</span>
+                        <span class="proj-badge">ETRI · 2024–25</span>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="proj-num">05</span>
+                        <span class="proj-text">Development of Perception/Planning AI SW for Seamless Autonomous Driving in Adverse Weather and Unstructured Environments.</span>
+                        <span class="proj-badge">ETRI · 2023–24</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS -->
+            <section class="section" id="publications">
+                <div class="section-label">Scholarly Output</div>
+                <h2 class="section-title">Publications</h2>
+                <div class="pub-list">
+
+                    <div class="pub-item">
+                        <div class="pub-authors">M. A. Rahman, D. Choi, S.-I. Lee, and K. Min</div>
+                        <a href="https://ieeexplore.ieee.org/document/11096230" target="_blank" class="pub-title">
+                            Beyond-Labels: Advancing Open-Vocabulary Segmentation With Vision-Language Models
+                        </a>
+                        <div class="pub-venue">17th IEEE International Conference on Advanced Computational Intelligence (ICACI) · Bath, UK · 2025</div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-authors">M. A. Rahman, D. Choi, and K. Min</div>
+                        <a href="https://ieeexplore.ieee.org/document/11096173" target="_blank" class="pub-title">
+                            LANet: A Lane Boundaries-Aware Approach for Robust Trajectory Prediction
+                        </a>
+                        <div class="pub-venue">17th IEEE International Conference on Advanced Computational Intelligence (ICACI) · Bath, UK · 2025</div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-authors">M. A. Rahman, H. Jeongbin, D. Choi, and K. Min</div>
+                        <a href="https://dx.doi.org/10.7467/KSAE.2026.34.3.36" target="_blank" class="pub-title">
+                            Interaction Graph Pruning for Efficient and Robust Trajectory Prediction
+                        </a>
+                        <div class="pub-venue">Transactions of the Korean Society of Automotive Engineers · 2025</div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-authors">H. Jeongbin, D. Choi, M. A. Rahman, K. An, and K. Min</div>
+                        <a href="https://ieeexplore.ieee.org/document/11388697" target="_blank" class="pub-title">
+                            Regularizing Neural Networks for BEV Semantic Segmentation via Inter-class Hierarchy and Spatially-aware Weight Adjustment
+                        </a>
+                        <div class="pub-venue">16th International Conference on ICT Convergence (ICTC) · Jeju, South Korea · 2025</div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+
+                <div class="sidebar-label">Researcher</div>
+                <div class="sidebar-name">Muhammad Atta ur Rahman</div>
+                <div class="sidebar-pos">Associate Research Engineer<br>SW Mobility (SWM), South Korea</div>
+
+                <div class="sidebar-label">Contact</div>
+                <div class="sidebar-email">
+                    m.attaurrahman01@gmail.com<br>
+                    marahman@swm.ai
+                </div>
+
+                <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="sidebar-link">
+                    ⌥ GitHub Profile
+                </a>
+
+                <div class="sidebar-label">Overview</div>
+                <div class="stat-row"><span class="stat-key">Publications</span><span class="stat-val">4</span></div>
+                <div class="stat-row"><span class="stat-key">Projects</span><span class="stat-val">5</span></div>
+                <div class="stat-row"><span class="stat-key">Experience</span><span class="stat-val">~4 yrs</span></div>
+                <div class="stat-row"><span class="stat-key">Degree</span><span class="stat-val">MS AI</span></div>
+
+            </div>
+        </aside>
+
     </div>
+
+    <footer class="page-footer">
+        Muhammad Atta ur Rahman · AI Researcher · South Korea
+    </footer>
+
+</div>
+
 </body>
 </html>
-
-
-
