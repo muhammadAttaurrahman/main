@@ -26,109 +26,81 @@
     --mono: 'JetBrains Mono', monospace;
     --serif: 'Source Serif 4', Georgia, serif;
     --display: 'Playfair Display', Georgia, serif;
-    --nav-bg: #1e3a6e;
-    --nav-text: #c8d8f0;
-    --nav-hover: #ffffff;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-/* ── BODY with background image ── */
 body {
     font-family: var(--serif);
+    background: var(--paper-warm);
     color: var(--ink);
     min-height: 100vh;
     font-size: 16px;
     line-height: 1.7;
-    background-color: var(--paper-warm);
-    background-image: url('background.png');
-    background-repeat: repeat-y;
-    background-size: auto 100%;
-    background-position: center top;
 }
 
-/* ── CENTRE PANEL (the white "slide" in the middle) ── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
 .page {
     position: relative;
     z-index: 1;
     max-width: 1160px;
     margin: 0 auto;
-    padding: 0 0 0;
-    background: var(--paper-warm);
-    box-shadow: 0 0 60px rgba(0,0,0,0.18);
-    min-height: 100vh;
+    padding: 0 24px 0;
 }
 
-/* ── MASTHEAD ── */
+/* MASTHEAD */
 .masthead {
     border-bottom: 1px solid var(--rule);
+    padding: 48px 0 40px;
     display: flex;
-    align-items: stretch;
-    gap: 0;
-    min-height: 260px;
+    align-items: flex-start;
+    gap: 48px;
 }
 
-/* Photo fills left side and stretches to nav */
 .masthead-photo {
     flex-shrink: 0;
-    width: 250px;
+    width: 148px;
+    height: 148px;
+    border-radius: 4px;
     object-fit: cover;
-    object-position: top center;
-    display: block;
-    border-right: 1px solid var(--rule);
+    border: 1px solid var(--rule);
+    box-shadow: 4px 4px 0 var(--rule);
     animation: fadeUp 0.7s ease both;
-    align-self: stretch;
 }
 
 .masthead-photo-placeholder {
     flex-shrink: 0;
-    width: 180px;
+    width: 148px;
+    height: 148px;
+    border-radius: 4px;
     background: var(--accent-soft);
-    border-right: 1px solid var(--rule);
+    border: 1px solid var(--rule);
+    box-shadow: 4px 4px 0 var(--rule);
     display: none;
     align-items: center;
     justify-content: center;
     font-family: var(--display);
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--accent-mid);
     animation: fadeUp 0.7s ease both;
 }
 
-/* Text block: name left, bio right */
-.masthead-text {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 0;
-    padding: 36px 40px 36px 36px;
-    animation: fadeUp 0.7s 0.1s ease both;
-}
-
-.name-block {
-    grid-column: 1 / 2;
-    grid-row: 1 / 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-right: 32px;
-    border-right: 1px solid var(--rule);
-}
-
-.bio-block {
-    grid-column: 2 / 3;
-    grid-row: 1 / 4;
-    padding-left: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+.masthead-text { flex: 1; animation: fadeUp 0.7s 0.1s ease both; }
 
 .name-line {
     font-family: var(--display);
-    font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.5px;
@@ -138,34 +110,52 @@ body {
 .title-line {
     margin-top: 10px;
     font-family: var(--mono);
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     color: var(--accent-mid);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    line-height: 1.5;
+}
+
+/* .bio-text {
+    margin-top: 14px;
+    font-size: 0.97rem;
+    color: var(--ink-mid);
+    max-width: 620px;
+    line-height: 1.75;
+    font-weight: 300;
+} */
+
+.bio-text {
+    margin-top: 14px;
+    font-size: 0.97rem;
+    color: var(--ink);        
+    max-width: 620px;
+    line-height: 1.75;
+    font-weight: 400;         
+    text-align: justify;
 }
 
 .contact-row {
-    margin-top: 24px;
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
 }
 
 .contact-chip {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border: 1px solid var(--rule);
     border-radius: 2px;
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     color: var(--ink-mid);
     text-decoration: none;
     background: var(--paper);
     transition: border-color 0.2s, background 0.2s, color 0.2s;
-    width: fit-content;
 }
 
 .contact-chip:hover {
@@ -174,56 +164,41 @@ body {
     color: var(--accent);
 }
 
-.bio-text {
-    font-size: 0.95rem;
-    color: var(--ink);
-    line-height: 1.8;
-    font-weight: 400;
-    text-align: justify;
-    flex: 1;
-}
-
-/* ── NAV STRIP ── */
+/* NAV */
 .nav-strip {
     display: flex;
-    background: var(--nav-bg);
+    border-bottom: 1px solid var(--rule);
     overflow-x: auto;
     scrollbar-width: none;
     animation: fadeUp 0.7s 0.2s ease both;
-    border-bottom: 3px solid var(--accent-glow);
 }
 
 .nav-strip::-webkit-scrollbar { display: none; }
 
 .nav-link {
-    padding: 14px 24px;
+    padding: 14px 22px;
     font-family: var(--mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--nav-text);
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -3px;
+    border-bottom: 2px solid transparent;
     white-space: nowrap;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition: color 0.2s, border-color 0.2s;
 }
 
-.nav-link:hover {
-    color: var(--nav-hover);
-    border-bottom-color: #7aaef0;
-    background: rgba(255,255,255,0.05);
-}
+.nav-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* ── BODY GRID ── */
+/* BODY GRID */
 .body-grid {
     display: grid;
     grid-template-columns: 1fr 260px;
     gap: 64px;
-    padding: 56px 40px 0 40px;
+    padding-top: 56px;
 }
 
-/* ── SECTION ── */
+/* SECTION */
 .section { margin-bottom: 56px; animation: fadeUp 0.7s ease both; }
 
 .section-label {
@@ -249,7 +224,7 @@ body {
     margin-top: -4px;
 }
 
-/* ── TIMELINE ── */
+/* TIMELINE */
 .timeline { display: flex; flex-direction: column; gap: 24px; }
 
 .tl-item {
@@ -282,18 +257,9 @@ body {
 .tl-role { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
 .tl-org { font-size: 0.9rem; color: var(--accent-mid); margin-top: 3px; }
 .tl-thesis { font-size: 0.85rem; color: var(--ink-light); font-style: italic; margin-top: 3px; }
+.tl-period { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); margin-top: 4px; letter-spacing: 0.04em; }
 
-/* ── PERIOD NOW BLACK ── */
-.tl-period {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--ink);
-    margin-top: 4px;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-}
-
-/* ── INTERESTS ── */
+/* INTERESTS */
 .interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
 .interest-pill {
@@ -305,9 +271,10 @@ body {
 }
 
 .interest-pill:hover { background: var(--accent-soft); border-color: var(--accent-glow); }
+
 .interest-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-glow); flex-shrink: 0; }
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 .project-list { display: flex; flex-direction: column; gap: 16px; }
 
 .project-item {
@@ -330,7 +297,7 @@ body {
     padding: 3px 8px; white-space: nowrap; letter-spacing: 0.03em;
 }
 
-/* ── PUBLICATIONS ── */
+/* PUBLICATIONS */
 .pub-list { display: flex; flex-direction: column; gap: 20px; }
 
 .pub-item {
@@ -353,7 +320,7 @@ body {
 .pub-title:hover { color: var(--accent-glow); }
 .pub-venue { font-size: 0.82rem; color: var(--ink-light); }
 
-/* ── AWARDS ── */
+/* AWARDS */
 .awards-list { display: flex; flex-direction: column; gap: 12px; }
 
 .award-item {
@@ -365,6 +332,7 @@ body {
 }
 
 .award-item:hover { border-color: var(--gold); box-shadow: 0 2px 12px rgba(184,146,42,0.08); }
+
 .award-year { font-family: var(--mono); font-size: 0.72rem; color: var(--gold); font-weight: 500; letter-spacing: 0.04em; }
 .award-body { display: flex; flex-direction: column; gap: 2px; }
 .award-title { font-size: 0.93rem; font-weight: 600; color: var(--ink); font-family: var(--display); }
@@ -377,7 +345,7 @@ body {
     padding: 3px 8px; white-space: nowrap; letter-spacing: 0.03em;
 }
 
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sidebar { animation: fadeUp 0.7s 0.15s ease both; }
 
 .sidebar-card {
@@ -419,16 +387,15 @@ body {
 .stat-key { color: var(--ink-light); }
 .stat-val { font-weight: 600; color: var(--ink); font-family: var(--mono); font-size: 0.8rem; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 .page-footer {
     margin-top: 24px;
     border-top: 1px solid var(--rule);
-    padding: 40px 40px 56px;
+    padding: 40px 0 56px;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 24px;
-    background: var(--paper-warm);
 }
 
 .footer-left { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--ink-mid); }
@@ -452,7 +419,7 @@ body {
 .footer-link:hover { color: var(--accent-mid); }
 .footer-location { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.04em; }
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -463,23 +430,18 @@ body {
 .section:nth-child(3) { animation-delay: 0.45s; }
 .section:nth-child(4) { animation-delay: 0.55s; }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .body-grid { grid-template-columns: 1fr; padding: 40px 24px 0; }
+    .body-grid { grid-template-columns: 1fr; }
     .sidebar { order: -1; }
     .sidebar-card { position: static; }
     .interests-grid { grid-template-columns: 1fr; }
-    .page-footer { grid-template-columns: 1fr; text-align: center; padding: 32px 24px 40px; }
+    .page-footer { grid-template-columns: 1fr; text-align: center; }
     .footer-right { align-items: center; }
-    .masthead-text { grid-template-columns: 1fr; padding: 24px; }
-    .name-block { border-right: none; border-bottom: 1px solid var(--rule); padding-right: 0; padding-bottom: 20px; margin-bottom: 20px; }
-    .bio-block { padding-left: 0; }
-    .contact-row { flex-direction: row; flex-wrap: wrap; }
 }
 
 @media (max-width: 640px) {
-    .masthead { flex-direction: column; }
-    .masthead-photo { width: 100%; height: 220px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .masthead { flex-direction: column; gap: 24px; }
     .project-item { grid-template-columns: 24px 1fr; }
     .proj-badge { grid-column: 2; }
     .award-item { grid-template-columns: 40px 1fr; }
@@ -496,30 +458,22 @@ body {
         <img src="muhammad_logo.jpg" alt="Muhammad Atta ur Rahman" class="masthead-photo"
              onerror="this.style.display='none'; document.querySelector('.masthead-photo-placeholder').style.display='flex';" />
         <div class="masthead-photo-placeholder">M</div>
-
         <div class="masthead-text">
-            <!-- LEFT: name + title + contact -->
-            <div class="name-block">
-                <div class="name-line">Muhammad Atta ur Rahman</div>
-                <div class="title-line">Associate Research Engineer<br>SW Mobility (SWM), South Korea</div>
-                <div class="contact-row">
-                    <a href="mailto:m.attaurrahman01@gmail.com" class="contact-chip">
-                        <span>✉</span> m.attaurrahman01@gmail.com
-                    </a>
-                    <a href="mailto:marahman@swm.ai" class="contact-chip">
-                        <span>✉</span> marahman@swm.ai
-                    </a>
-                    <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="contact-chip">
-                        <span>⌥</span> GitHub
-                    </a>
-                </div>
-            </div>
-
-            <!-- RIGHT: bio summary -->
-            <div class="bio-block">
-                <p class="bio-text">
-                    I am an Associate Research Engineer at SWM, specializing in the design and development of computationally efficient and robust trajectory prediction and motion planning frameworks for Autonomous Vehicles. My work focuses on advancing AI for Autonomous Driving, with expertise in trajectory prediction, multi-agent interaction modeling, and decision-making under uncertainty. Passionate about advancing research in Intelligent Autonomous Systems.
-                </p>
+            <div class="name-line">Muhammad Atta ur Rahman</div>
+            <div class="title-line">Associate Research Engineer, SW Mobility (SWM), South Korea</div>
+            <p class="bio-text" style="text-align: justify;">
+    I am an Associate Research Engineer at SWM, specializing in the design and development of computationally efficient and robust trajectory prediction and motion planning frameworks for Autonomous Vehicles. My work focuses on advancing AI for Autonomous Driving, with expertise in trajectory prediction, multi-agent interaction modeling, and decision-making under uncertainty. Passionate about advancing research in Intelligent Autonomous Systems.
+</p>
+            <div class="contact-row">
+                <a href="mailto:m.attaurrahman01@gmail.com" class="contact-chip">
+                    <span>✉</span> m.attaurrahman01@gmail.com
+                </a>
+                <a href="mailto:marahman@swm.ai" class="contact-chip">
+                    <span>✉</span> marahman@swm.ai
+                </a>
+                <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="contact-chip">
+                    <span>⌥</span> GitHub
+                </a>
             </div>
         </div>
     </header>
@@ -741,7 +695,7 @@ body {
                         <span class="award-year">2021</span>
                         <div class="award-body">
                             <span class="award-title">Silver Medalist in Bachelors</span>
-                            <span class="award-org">Ranked 2nd among 100 students · Islamia College University Peshawar</span>
+                            <span class="award-org">Islamia College University Peshawar</span>
                         </div>
                         <span class="award-badge">Merit Award</span>
                     </div>
@@ -750,7 +704,7 @@ body {
                         <span class="award-year">2021</span>
                         <div class="award-body">
                             <span class="award-title">Section Topper in Bachelors</span>
-                            <span class="award-org">Ranked 1st in section · Islamia College University Peshawar</span>
+                            <span class="award-org">Islamia College University Peshawar</span>
                         </div>
                         <span class="award-badge">Merit Award</span>
                     </div>
@@ -759,7 +713,7 @@ body {
                         <span class="award-year">2020</span>
                         <div class="award-body">
                             <span class="award-title">Ehsaas Undergraduate Scholarship</span>
-                            <span class="award-org">Government of Pakistan</span>
+                            <span class="award-org">Islamia College University Peshawar</span>
                         </div>
                         <span class="award-badge">Merit Award</span>
                     </div>
@@ -791,7 +745,6 @@ body {
                 <div class="stat-row"><span class="stat-key">Publications</span><span class="stat-val">4</span></div>
                 <div class="stat-row"><span class="stat-key">Projects</span><span class="stat-val">5</span></div>
                 <div class="stat-row"><span class="stat-key">Awards</span><span class="stat-val">6</span></div>
-
             </div>
         </aside>
 
