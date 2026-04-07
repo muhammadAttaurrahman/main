@@ -119,10 +119,10 @@ body::before {
 .bio-text {
     margin-top: 14px;
     font-size: 0.97rem;
-    color: var(--ink);        
+    color: var(--ink);
     max-width: 620px;
     line-height: 1.75;
-    font-weight: 400;         
+    font-weight: 400;
     text-align: justify;
 }
 
@@ -155,16 +155,14 @@ body::before {
     color: var(--accent);
 }
 
-/* NAV — updated with background */
+/* NAV */
 .nav-strip {
     display: flex;
-    border-bottom: 1px solid var(--rule);
+    background: #1a2744;
+    border-bottom: 3px solid var(--accent-glow);
     overflow-x: auto;
     scrollbar-width: none;
     animation: fadeUp 0.7s 0.2s ease both;
-    background: #1a2744;
-    border-radius: 0;
-    margin: 0 -0px;
 }
 
 .nav-strip::-webkit-scrollbar { display: none; }
@@ -177,7 +175,8 @@ body::before {
     text-transform: uppercase;
     color: #c8d8f0;
     text-decoration: none;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
     white-space: nowrap;
     transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
@@ -253,18 +252,9 @@ body::before {
 }
 
 .tl-role { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
-.tl-org { font-size: 0.9rem; color: var(--accent-mid); margin-top: 3px; }
-.tl-thesis { font-size: 0.85rem; color: var(--ink-light); font-style: italic; margin-top: 3px; }
-
-/* Date/period text — changed to black */
-.tl-period {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: #0f1117;
-    margin-top: 4px;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-}
+.tl-org  { font-size: 0.9rem; color: var(--ink); margin-top: 3px; }
+.tl-thesis { font-size: 0.85rem; color: var(--ink); font-style: italic; margin-top: 3px; }
+.tl-period { font-family: var(--mono); font-size: 0.72rem; color: var(--ink); margin-top: 4px; letter-spacing: 0.04em; font-weight: 500; }
 
 /* INTERESTS */
 .interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -278,7 +268,6 @@ body::before {
 }
 
 .interest-pill:hover { background: var(--accent-soft); border-color: var(--accent-glow); }
-
 .interest-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-glow); flex-shrink: 0; }
 
 /* PROJECTS */
@@ -293,7 +282,6 @@ body::before {
 }
 
 .project-item:hover { border-color: var(--accent-glow); box-shadow: 0 2px 12px rgba(74,128,212,0.08); }
-
 .proj-num { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); padding-top: 2px; }
 .proj-text { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.65; }
 
@@ -316,7 +304,7 @@ body::before {
 }
 
 .pub-item:hover { border-left-color: var(--accent-mid); }
-.pub-authors { font-size: 0.82rem; color: var(--ink-faint); margin-bottom: 5px; font-style: italic; }
+.pub-authors { font-size: 0.82rem; color: var(--ink); margin-bottom: 5px; font-style: italic; }
 
 .pub-title {
     font-family: var(--display); font-size: 0.98rem; font-weight: 600;
@@ -325,7 +313,7 @@ body::before {
 }
 
 .pub-title:hover { color: var(--accent-glow); }
-.pub-venue { font-size: 0.82rem; color: var(--ink-light); }
+.pub-venue { font-size: 0.82rem; color: var(--ink); }
 
 /* AWARDS */
 .awards-list { display: flex; flex-direction: column; gap: 12px; }
@@ -339,19 +327,10 @@ body::before {
 }
 
 .award-item:hover { border-color: var(--gold); box-shadow: 0 2px 12px rgba(184,146,42,0.08); }
-
-/* Award year — changed to black */
-.award-year {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: #0f1117;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-}
-
+.award-year { font-family: var(--mono); font-size: 0.72rem; color: var(--ink); font-weight: 500; letter-spacing: 0.04em; }
 .award-body { display: flex; flex-direction: column; gap: 2px; }
 .award-title { font-size: 0.93rem; font-weight: 600; color: var(--ink); font-family: var(--display); }
-.award-org { font-size: 0.8rem; color: var(--ink-light); }
+.award-org { font-size: 0.8rem; color: var(--ink); }
 
 .award-badge {
     font-family: var(--mono); font-size: 0.68rem;
@@ -413,26 +392,26 @@ body::before {
     gap: 24px;
 }
 
-.footer-left { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--ink-mid); }
+.footer-left { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--ink); }
 .footer-left span {
     display: block; font-family: var(--mono); font-size: 0.68rem; font-weight: 400;
-    color: var(--ink-faint); margin-top: 4px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink); margin-top: 4px; letter-spacing: 0.08em; text-transform: uppercase;
 }
 
 .footer-center { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.footer-monogram { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--rule); letter-spacing: -1px; }
-.footer-copy { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-monogram { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--ink-mid); letter-spacing: -1px; }
+.footer-copy { font-family: var(--mono); font-size: 0.65rem; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; }
 
 .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 .footer-links { display: flex; gap: 18px; }
 
 .footer-link {
-    font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint);
+    font-family: var(--mono); font-size: 0.72rem; color: var(--ink);
     text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
 }
 
 .footer-link:hover { color: var(--accent-mid); }
-.footer-location { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.04em; }
+.footer-location { font-family: var(--mono); font-size: 0.68rem; color: var(--ink); letter-spacing: 0.04em; }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -476,20 +455,9 @@ body::before {
         <div class="masthead-text">
             <div class="name-line">Muhammad Atta ur Rahman</div>
             <div class="title-line">Associate Research Engineer, SW Mobility (SWM), South Korea</div>
-            <p class="bio-text" style="text-align: justify;">
-    I am an Associate Research Engineer at SWM, specializing in the design and development of computationally efficient and robust trajectory prediction and motion planning frameworks for Autonomous Vehicles. My work focuses on advancing AI for Autonomous Driving, with expertise in trajectory prediction, multi-agent interaction modeling, and decision-making under uncertainty. Passionate about advancing research in Intelligent Autonomous Systems.
-</p>
-            <!-- <div class="contact-row">
-                <a href="mailto:m.attaurrahman01@gmail.com" class="contact-chip">
-                    <span>✉</span> m.attaurrahman01@gmail.com
-                </a>
-                <a href="mailto:marahman@swm.ai" class="contact-chip">
-                    <span>✉</span> marahman@swm.ai
-                </a>
-                <a href="https://github.com/muhammadAttaurrahman" target="_blank" class="contact-chip">
-                    <span>⌥</span> GitHub
-                </a>
-            </div> -->
+            <p class="bio-text">
+                I am an Associate Research Engineer at SWM, specializing in the design and development of computationally efficient and robust trajectory prediction and motion planning frameworks for Autonomous Vehicles. My work focuses on advancing AI for Autonomous Driving, with expertise in trajectory prediction, multi-agent interaction modeling, and decision-making under uncertainty. Passionate about advancing research in Intelligent Autonomous Systems.
+            </p>
         </div>
     </header>
 
@@ -517,7 +485,7 @@ body::before {
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
                             <div class="tl-role">Associate Research Engineer</div>
-                            <div class="tl-org">Driving Planning AI Development Team,  SW Mobility (SWM), South Korea</div>
+                            <div class="tl-org">Driving Planning AI Development Team, SW Mobility (SWM), South Korea</div>
                             <div class="tl-period">Dec 2025 – Present</div>
                         </div>
                     </div>
@@ -655,7 +623,7 @@ body::before {
                     </div>
 
                     <div class="pub-item">
-                        <div class="pub-authors" >M. A. Rahman, H. Jeongbin, D. Choi, and K. Min</div>
+                        <div class="pub-authors">M. A. Rahman, H. Jeongbin, D. Choi, and K. Min</div>
                         <a href="https://dx.doi.org/10.7467/KSAE.2026.34.3.365" target="_blank" class="pub-title">
                             Interaction Graph Pruning for Efficient and Robust Trajectory Prediction
                         </a>
@@ -760,6 +728,7 @@ body::before {
                 <div class="stat-row"><span class="stat-key">Publications</span><span class="stat-val">4</span></div>
                 <div class="stat-row"><span class="stat-key">Projects</span><span class="stat-val">5</span></div>
                 <div class="stat-row"><span class="stat-key">Awards</span><span class="stat-val">6</span></div>
+
             </div>
         </aside>
 
