@@ -402,7 +402,7 @@ body::before {
 .footer-monogram { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--ink-mid); letter-spacing: -1px; }
 .footer-copy { font-family: var(--mono); font-size: 0.65rem; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; }
 
-.footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 .footer-links { display: flex; gap: 18px; }
 
 .footer-link {
@@ -412,6 +412,23 @@ body::before {
 
 .footer-link:hover { color: var(--accent-mid); }
 .footer-location { font-family: var(--mono); font-size: 0.68rem; color: var(--ink); letter-spacing: 0.04em; }
+
+/* VISITOR COUNTER */
+.footer-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+}
+
+.footer-counter img {
+    height: 20px;
+    border-radius: 2px;
+    vertical-align: middle;
+}
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -493,7 +510,7 @@ body::before {
                     <div class="tl-item">
                         <div class="tl-dot-col"><div class="tl-dot"></div></div>
                         <div class="tl-body">
-                            <div class="tl-role"> Graduate Student Researcher</div>
+                            <div class="tl-role">Graduate Student Researcher</div>
                             <div class="tl-org">Autonomous Driving Intelligence Research (ADIR) Team, Electronics and Telecommunications Research Institute (ETRI), South Korea</div>
                             <div class="tl-period">Sep 2023 – Sep 2025</div>
                         </div>
@@ -614,14 +631,13 @@ body::before {
                         <div class="pub-venue">17th IEEE International Conference on Advanced Computational Intelligence (ICACI) · Bath, UK · 2025</div>
                     </div>
 
-                     <div class="pub-item">
+                    <div class="pub-item">
                         <div class="pub-authors">M. A. Rahman, D. Choi, S.-I. Lee, and K. Min</div>
                         <a href="https://ieeexplore.ieee.org/document/11096230" target="_blank" class="pub-title">
                             Beyond-Labels: Advancing Open-Vocabulary Segmentation With Vision-Language Models
                         </a>
                         <div class="pub-venue">17th IEEE International Conference on Advanced Computational Intelligence (ICACI) · Bath, UK · 2025</div>
                     </div>
-
 
                     <div class="pub-item">
                         <div class="pub-authors">M. A. Rahman, H. Jeongbin, D. Choi, and K. Min</div>
@@ -740,6 +756,7 @@ body::before {
         <div class="footer-left">
             Muhammad Atta ur Rahman
             <span>AI Researcher · Autonomous Driving</span>
+            <span style="margin-top: 6px;">Online since April 2026</span>
         </div>
         <div class="footer-center">
             <div class="footer-monogram">MAR</div>
@@ -752,6 +769,29 @@ body::before {
                 <a href="#career" class="footer-link">Back to top &#8593;</a>
             </div>
             <div class="footer-location">&#128205; South Korea</div>
+            <!-- 
+                VISITOR COUNTER — hits.seeyoufarm.com (free, no signup)
+                HOW TO ACTIVATE:
+                1. Replace YOUR-GITHUB-USERNAME/YOUR-REPO-NAME below with your actual GitHub Pages URL
+                   e.g. if your site is at: https://muhammadAttaurrahman.github.io/profile
+                   use: muhammadAttaurrahman/profile
+                2. Uncomment the div below by removing the  markers
+            -->
+            <!--
+            <div class="footer-counter">
+                Profile visits:
+                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2FYOUR-GITHUB-USERNAME.github.io%2FYOUR-REPO-NAME&count_bg=%231a3a6b&title_bg=%23ddd9ce&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=true" alt="Visitor Count" />
+            </div>
+            -->
+
+            <!-- 
+                ALTERNATIVE — GoatCounter (free, gives monthly stats dashboard)
+                1. Sign up free at goatcounter.com
+                2. Replace YOUR-SITE-CODE with the code you choose during signup
+                3. Uncomment below
+            -->
+                        <script data-goatcounter="https://muhammad-atta-ur-rahman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+           
         </div>
     </footer>
 
